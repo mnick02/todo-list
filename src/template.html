@@ -21,6 +21,34 @@
             </div>
         </form>
     </dialog>
+
+
+    <button id="taskBtn">New Task</button>
+
+    <dialog id="taskDialog">
+        <form action="" method="get" class="task-info">
+            <h3>New Task</h3>
+
+            <p class="input-styles">
+                <label for="taskName"></label>
+                <input type="text" id="taskName" name="taskName" placeholder="Title">
+            </p>
+            
+            <p class="input-styles">
+                <label for="description"></label>
+                <input type="text" id="description" name="description" placeholder="Description">
+            </p>
+
+            <p class="input-styles">
+                <input type="date" id="date" name="date">
+            </p>
+
+            <div>
+                <button id="addBtn" value="default">Add</button>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+            </div>
+        </form>
+    </dialog>
     
 </body>
 </html>
