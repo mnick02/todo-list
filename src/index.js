@@ -18,6 +18,14 @@ function displayModal(btn, dialog) {
     });
 }
 
+const taskAdd = document.getElementById("taskAdd");
+taskAdd.addEventListener("click", (event) => {
+    event.preventDefault();
+    const taskTitle = document.getElementById("taskName").value;
+    console.log(taskTitle);
+    //Add close modal
+});
+
 
 function closeModal(modal, form) {
     modal.close();
