@@ -1,10 +1,7 @@
 const btn = document.getElementById("project");
+const taskBtn = document.getElementById("taskBtn");
 const projectModal = document.getElementById("projectDialog");
 const projectForm = document.querySelector(".project-info");
-
-btn.addEventListener("click", () => {
-    projectDialog.showModal();
-});
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", (event) => {
@@ -14,10 +11,12 @@ addBtn.addEventListener("click", (event) => {
     closeModal(projectModal, projectForm);
 });
 
-const taskBtn = document.getElementById("taskBtn");
-taskBtn.addEventListener("click", () => {
-    taskDialog.showModal();
-});
+function displayModal(btn, dialog) {
+    btn.addEventListener("click", () => {
+        dialog.showModal();
+        console.log("hiya");
+    });
+}
 
 
 function closeModal(modal, form) {
@@ -27,5 +26,6 @@ function closeModal(modal, form) {
     }
 }
 
-
+displayModal(btn, projectDialog);
+displayModal(taskBtn, taskDialog);
 //break everything up
