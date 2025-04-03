@@ -10,3 +10,10 @@ addBtn.addEventListener("click", (event) => {
     const title = document.getElementById("title").value;
     console.log(title);
 });
+
+const taskBtn = document.getElementById("taskBtn");
+taskBtn.addEventListener("click", () => {
+    taskDialog.showModal();
+});
+
+//break everything up
