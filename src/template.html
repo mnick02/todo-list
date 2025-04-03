@@ -9,10 +9,17 @@
     <button id="project">New Project</button>
 
     <dialog id="projectDialog">
-        <p class="input-styles">
-            <label for="title">New Project</label>
-            <input type="text" id="title" name="title" placeholder="Project Title">
-        </p>
+        <form action="" method="get" class="project-info">
+            <p class="input-styles">
+                <label for="title">New Project</label>
+                <input type="text" id="title" name="title" placeholder="Project Title">
+            </p>
+
+            <div>
+                <button id="addBtn" value="default">Add</button>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+            </div>
+        </form>
     </dialog>
     
 </body>
