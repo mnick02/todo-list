@@ -11,7 +11,7 @@ addBtn.addEventListener("click", (event) => {
     event.preventDefault();
     const title = document.getElementById("title").value;
     console.log(title);
-    closeModal();
+    closeModal(projectModal, projectForm);
 });
 
 const taskBtn = document.getElementById("taskBtn");
@@ -20,10 +20,11 @@ taskBtn.addEventListener("click", () => {
 });
 
 
-function closeModal() {
-    projectModal.close();
-    projectForm.reset();
-
+function closeModal(modal, form) {
+    modal.close();
+    if (form) {
+        form.reset();
+    }
 }
 
 
