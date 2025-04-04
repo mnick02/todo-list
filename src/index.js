@@ -2,6 +2,8 @@ const btn = document.getElementById("project");
 const taskBtn = document.getElementById("taskBtn");
 const projectModal = document.getElementById("projectDialog");
 const projectForm = document.querySelector(".project-info");
+const taskModal = document.getElementById("taskDialog");
+const taskForm = document.querySelector(".task-info");
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", (event) => {
@@ -24,6 +26,7 @@ taskAdd.addEventListener("click", (event) => {
     const taskTitle = document.getElementById("taskName").value;
     console.log(taskTitle);
     //Add close modal
+    closeModal(taskModal, taskForm);
 });
 
 
