@@ -25,45 +25,47 @@
     </div>
 
 
-    <button id="taskBtn">New Task</button>
+    <div id="task-content">
+        <button id="taskBtn">New Task</button>
 
-    <dialog id="taskDialog">
-        <form action="" method="get" class="task-info">
-            <h3>New Task</h3>
+        <dialog id="taskDialog">
+            <form action="" method="get" class="task-info">
+                <h3>New Task</h3>
 
-            <p class="input-styles">
-                <label for="taskName"></label>
-                <input type="text" id="taskName" name="taskName" placeholder="Title">
-            </p>
-            
-            <p class="input-styles">
-                <label for="description"></label>
-                <input type="text" id="description" name="description" placeholder="Description">
-            </p>
+                <p class="input-styles">
+                    <label for="taskName"></label>
+                    <input type="text" id="taskName" name="taskName" placeholder="Title">
+                </p>
+                
+                <p class="input-styles">
+                    <label for="description"></label>
+                    <input type="text" id="description" name="description" placeholder="Description">
+                </p>
 
-            <p class="input-styles">
-                <input type="date" id="date" name="date">
-            </p>
+                <p class="input-styles">
+                    <input type="date" id="date" name="date">
+                </p>
 
-            <p class="input-styles">
-                <select id="priority">
-                    <option value="default">Priority...</option>
-                    <option>High</option>
-                    <option>Medium</option>
-                    <option>Low</option>
-                </select>
-            </p>
+                <p class="input-styles">
+                    <select id="priority">
+                        <option value="default">Priority...</option>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                </p>
 
-            <p class="input-styles">
-                <textarea id="notes" name="notes" placeholder="Notes"></textarea>
-            </p>
+                <p class="input-styles">
+                    <textarea id="notes" name="notes" placeholder="Notes"></textarea>
+                </p>
 
-            <div>
-                <button id="taskAdd" value="default">Add</button>
-                <button value="cancel" formmethod="dialog">Cancel</button>
-            </div>
-        </form>
-    </dialog>
+                <div>
+                    <button id="taskAdd" value="default">Add</button>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+    </div>
     
 </body>
 </html>
