@@ -16,7 +16,6 @@ addBtn.addEventListener("click", (event) => {
     else {
         alert("Please provide project title");
     }
-    
 });
 
 function displayModal(btn, dialog) {
@@ -30,9 +29,18 @@ const taskAdd = document.getElementById("taskAdd");
 taskAdd.addEventListener("click", (event) => {
     event.preventDefault();
     const taskTitle = document.getElementById("taskName").value;
-    console.log(taskTitle);
-    //Add close modal
-    closeModal(taskModal, taskForm);
+    const dates = document.getElementById("date").value;
+
+
+    if (taskTitle && dates) {
+        console.log(taskTitle);
+        console.log(dates);
+        closeModal(taskModal, taskForm);
+    }
+    else {
+        alert("Please provide task title and date");
+    }
+
 });
 
 
