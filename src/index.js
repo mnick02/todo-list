@@ -9,8 +9,14 @@ const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", (event) => {
     event.preventDefault();
     const title = document.getElementById("title").value;
-    console.log(title);
-    closeModal(projectModal, projectForm);
+    if (title) {
+        console.log(title);
+        closeModal(projectModal, projectForm);
+    }
+    else {
+        alert("Please provide project title");
+    }
+    
 });
 
 function displayModal(btn, dialog) {
