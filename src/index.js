@@ -4,6 +4,7 @@ const projectModal = document.getElementById("projectDialog");
 const projectForm = document.querySelector(".project-info");
 const taskModal = document.getElementById("taskDialog");
 const taskForm = document.querySelector(".task-info");
+const projects = document.getElementById("projects-bar");
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", (event) => {
@@ -11,6 +12,9 @@ addBtn.addEventListener("click", (event) => {
     const title = document.getElementById("title").value;
     if (title) {
         console.log(title);
+        const test = document.createElement("div");
+        test.textContent = title;
+        projects.appendChild(test);
         closeModal(projectModal, projectForm);
     }
     else {
@@ -54,3 +58,8 @@ function closeModal(modal, form) {
 displayModal(btn, projectDialog);
 displayModal(taskBtn, taskDialog);
 //break everything up
+
+
+//create btn in add, eventListener for btn,
+//when btn clicked eventListener to clear html
+//put in different html tags 
