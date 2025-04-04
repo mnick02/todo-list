@@ -6,21 +6,23 @@
     <title>Todo</title>
 </head>
 <body>
-    <button id="project">New Project</button>
+    <div id="projects-bar">
+        <button id="project">New Project</button>
 
-    <dialog id="projectDialog">
-        <form action="" method="get" class="project-info">
-            <p class="input-styles">
-                <label for="title">New Project</label>
-                <input type="text" id="title" name="title" placeholder="Project Title">
-            </p>
+        <dialog id="projectDialog">
+            <form action="" method="get" class="project-info">
+                <p class="input-styles">
+                    <label for="title">New Project</label>
+                    <input type="text" id="title" name="title" placeholder="Project Title">
+                </p>
 
-            <div>
-                <button id="addBtn" value="default">Add</button>
-                <button value="cancel" formmethod="dialog">Cancel</button>
-            </div>
-        </form>
-    </dialog>
+                <div>
+                    <button id="addBtn" value="default">Add</button>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+    </div>
 
 
     <button id="taskBtn">New Task</button>
