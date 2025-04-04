@@ -5,6 +5,7 @@ const projectForm = document.querySelector(".project-info");
 const taskModal = document.getElementById("taskDialog");
 const taskForm = document.querySelector(".task-info");
 const projects = document.getElementById("projects-bar");
+const tasks = document.getElementById("task-content");
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", (event) => {
@@ -39,6 +40,12 @@ taskAdd.addEventListener("click", (event) => {
     if (taskTitle && dates) {
         console.log(taskTitle);
         console.log(dates);
+        const test2 = document.createElement("div");
+        const test3 = document.createElement("div");
+        test2.textContent = taskTitle;
+        test3.textContent = dates;
+        tasks.appendChild(test2);
+        tasks.appendChild(test3);
         closeModal(taskModal, taskForm);
     }
     else {
