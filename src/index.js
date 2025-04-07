@@ -48,6 +48,7 @@ taskAdd.addEventListener("click", (event) => {
         tasks.appendChild(test2);
         tasks.appendChild(test3);
         closeModal(taskModal, taskForm);
+        removeThis(tasks, test2, test3);
     }
     else {
         alert("Please provide task title and date");
@@ -64,7 +65,7 @@ function closeModal(modal, form) {
 }
 
 
-function removeThis(name, element) {
+function removeThis(name, element, element2) {
     const btn = document.createElement("button");
     btn.textContent = "R";
     name.appendChild(btn);
@@ -73,7 +74,11 @@ function removeThis(name, element) {
         btn.remove();
         element.remove();
         console.log("in eventListener");
-    })
+
+        if (element2) {
+            element2.remove();
+        }
+    });
 }
 
 displayModal(btn, projectDialog);
