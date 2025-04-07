@@ -17,6 +17,7 @@ addBtn.addEventListener("click", (event) => {
         test.textContent = title;
         projects.appendChild(test);
         closeModal(projectModal, projectForm);
+        removeThis(projects, test);
     }
     else {
         alert("Please provide project title");
@@ -60,6 +61,19 @@ function closeModal(modal, form) {
     if (form) {
         form.reset();
     }
+}
+
+
+function removeThis(name, element) {
+    const btn = document.createElement("button");
+    btn.textContent = "R";
+    name.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        btn.remove();
+        element.remove();
+        console.log("in eventListener");
+    })
 }
 
 displayModal(btn, projectDialog);
