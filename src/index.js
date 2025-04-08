@@ -7,6 +7,20 @@ const taskForm = document.querySelector(".task-info");
 const projects = document.getElementById("projects-bar");
 const tasks = document.getElementById("task-content");
 
+//const taskAdd = document.getElementById("taskAdd");
+//taskAdd.style.display = 'none';
+
+//Remove btn from html create here
+//remove btn when remove project
+
+const taskNew = document.createElement("button");
+taskNew.id = "taskNew";
+taskNew.textContent = "New Task";
+taskNew.style.display = "none";
+tasks.appendChild(taskNew);
+
+let selectedProject = null;
+
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -18,6 +32,16 @@ addBtn.addEventListener("click", (event) => {
         projects.appendChild(test);
         closeModal(projectModal, projectForm);
         removeThis(projects, test);
+
+        //select title
+        //btn appears 
+        //title selected div content set to whatever
+        test.addEventListener("click", () => {
+            console.log("HI FROM EVENT!");
+            taskNew.style.display = 'block';
+        });
+
+
     }
     else {
         alert("Please provide project title");
@@ -82,7 +106,7 @@ function removeThis(name, element, element2) {
 }
 
 displayModal(btn, projectDialog);
-displayModal(taskBtn, taskDialog);
+displayModal(taskNew, taskDialog);
 //break everything up
 
 
