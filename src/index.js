@@ -20,6 +20,8 @@ taskNew.style.display = "none";
 tasks.appendChild(taskNew);
 
 let selectedProject = null;
+let projectTasks = {};
+let projectCounter = 0;
 
 const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", (event) => {
@@ -27,19 +29,37 @@ addBtn.addEventListener("click", (event) => {
     const title = document.getElementById("title").value;
     if (title) {
         console.log(title);
+
+        const projectID = "project-" + projectCounter++;
+
         const test = document.createElement("div");
         test.textContent = title;
         projects.appendChild(test);
         closeModal(projectModal, projectForm);
+
+        projectTasks[projectID] = [];
+
         //removeThis(projects, test);
         removeProjectBtn(projects, test);
+        
 
         //select title
         //btn appears 
         //title selected div content set to whatever
         test.addEventListener("click", () => {
             console.log("HI FROM EVENT!");
-            taskNew.style.display = 'block';
+
+            if (selectedProject) {
+                selectedProject.classList.remove("selected");
+            }
+            
+            selectedProject = test;
+            selectedProject.classList.add("selected");
+
+            taskNew.style.display = "block";
+
+            showProjectTasks(projectID);
+
         });
 
 
@@ -98,7 +118,7 @@ function removeThis(name, element, element2) {
     btn.addEventListener("click", () => {
         btn.remove();
         element.remove();
-        taskNew.style.display = "none";
+        //taskNew.style.display = "none";
         console.log("in eventListener");
         
 
