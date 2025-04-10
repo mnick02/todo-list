@@ -31,7 +31,8 @@ addBtn.addEventListener("click", (event) => {
         test.textContent = title;
         projects.appendChild(test);
         closeModal(projectModal, projectForm);
-        removeThis(projects, test);
+        //removeThis(projects, test);
+        removeProjectBtn(projects, test);
 
         //select title
         //btn appears 
@@ -97,11 +98,29 @@ function removeThis(name, element, element2) {
     btn.addEventListener("click", () => {
         btn.remove();
         element.remove();
+        taskNew.style.display = "none";
         console.log("in eventListener");
+        
 
         if (element2) {
             element2.remove();
         }
+    });
+}
+
+function removeProjectBtn(name, element) {
+    const btn = document.createElement("button");
+    btn.textContent = "R";
+    name.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        if (selectedProject === element) {
+            taskNew.style.display = "none";
+            selectedProject = null;
+        }
+
+        btn.remove();
+        element.remove();
     });
 }
 
