@@ -76,6 +76,18 @@ function displayModal(btn, dialog) {
     });
 }
 
+function showProjectTasks(projectID) {
+    const allTaskElements = document.querySelectorAll(".task-item");
+    allTaskElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    const projectSpecificTasks = document.querySelectorAll(`.task-item[data-project-id="${projectID}"]`);
+    projectSpecificTasks.forEach(element => {
+        element.style.display = "block";
+    });
+}
+
 const taskAdd = document.getElementById("taskAdd");
 taskAdd.addEventListener("click", (event) => {
     event.preventDefault();
