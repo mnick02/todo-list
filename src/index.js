@@ -98,6 +98,8 @@ taskAdd.addEventListener("click", (event) => {
     const taskTitle = document.getElementById("taskName").value;
     const dates = document.getElementById("date").value;
 
+    const priority = document.getElementById("priority").value;
+
 
     if (taskTitle && dates && selectedProject) {
         console.log(taskTitle);
@@ -112,10 +114,13 @@ taskAdd.addEventListener("click", (event) => {
 
         const test2 = document.createElement("div");
         const test3 = document.createElement("div");
+        const test4 = document.createElement("div");
         test2.textContent = taskTitle;
         test3.textContent = dates;
+        test4.textContent = priority;
         taskContainer.appendChild(test2);
         taskContainer.appendChild(test3);
+        taskContainer.appendChild(test4);
 
         tasks.appendChild(taskContainer);
         projectTasks[projectId].push(taskContainer);
