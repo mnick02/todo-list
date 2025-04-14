@@ -30,14 +30,18 @@ addBtn.addEventListener("click", (event) => {
     if (title) {
         console.log(title);
 
-        const projectID = "project-" + projectCounter++;
+        const projectId = "project-" + projectCounter++;
 
         const test = document.createElement("div");
+        test.className = "project-item";
         test.textContent = title;
+
+        test.dataset.projectId = projectId;
+        
         projects.appendChild(test);
         closeModal(projectModal, projectForm);
 
-        projectTasks[projectID] = [];
+        projectTasks[projectId] = [];
 
         //removeThis(projects, test);
         removeProjectBtn(projects, test);
@@ -58,7 +62,7 @@ addBtn.addEventListener("click", (event) => {
 
             taskNew.style.display = "block";
 
-            showProjectTasks(projectID);
+            showProjectTasks(projectId);
 
         });
 
@@ -76,13 +80,13 @@ function displayModal(btn, dialog) {
     });
 }
 
-function showProjectTasks(projectID) {
+function showProjectTasks(projectId) {
     const allTaskElements = document.querySelectorAll(".task-item");
     allTaskElements.forEach(element => {
         element.style.display = "none";
     });
 
-    const projectSpecificTasks = document.querySelectorAll(`.task-item[data-project-id="${projectID}"]`);
+    const projectSpecificTasks = document.querySelectorAll(`.task-item[data-project-id="${projectId}"]`);
     projectSpecificTasks.forEach(element => {
         element.style.display = "block";
     });
@@ -95,17 +99,45 @@ taskAdd.addEventListener("click", (event) => {
     const dates = document.getElementById("date").value;
 
 
-    if (taskTitle && dates) {
+    if (taskTitle && dates && selectedProject) {
         console.log(taskTitle);
         console.log(dates);
+
+        const projectId = selectedProject.dataset.projectId;
+
+        const taskContainer = document.createElement("div");
+        taskContainer.className = "task-item";
+        taskContainer.dataset.projectId = projectId;
+
+
         const test2 = document.createElement("div");
         const test3 = document.createElement("div");
         test2.textContent = taskTitle;
         test3.textContent = dates;
-        tasks.appendChild(test2);
-        tasks.appendChild(test3);
+        taskContainer.appendChild(test2);
+        taskContainer.appendChild(test3);
+
+        tasks.appendChild(taskContainer);
+        projectTasks[projectId].push(taskContainer);
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "R";
+        removeBtn.className = "remove-btn";
+        taskContainer.appendChild(removeBtn);
+        
+        removeBtn.addEventListener("click", () => {
+            // Remove from DOM
+            taskContainer.remove();
+            
+            // Remove from our tracking array
+            const taskIndex = projectTasks[projectId].indexOf(taskContainer);
+            if (taskIndex > -1) {
+                projectTasks[projectId].splice(taskIndex, 1);
+            }
+        });
+
         closeModal(taskModal, taskForm);
-        removeThis(tasks, test2, test3);
+        //removeThis(tasks, test2, test3);
     }
     else {
         alert("Please provide task title and date");
@@ -128,10 +160,11 @@ function removeThis(name, element, element2) {
     name.appendChild(btn);
 
     btn.addEventListener("click", () => {
-        btn.remove();
+        //btn.remove();
         element.remove();
         //taskNew.style.display = "none";
         console.log("in eventListener");
+
         
 
         if (element2) {
@@ -146,9 +179,21 @@ function removeProjectBtn(name, element) {
     name.appendChild(btn);
 
     btn.addEventListener("click", () => {
+
+        const projectId = element.dataset.projectId;
+
         if (selectedProject === element) {
             taskNew.style.display = "none";
             selectedProject = null;
+        }
+
+        if(projectTasks[projectId]) {
+            projectTasks[projectId].forEach(taskElement => {
+                if(taskElement.parentNode) {
+                    taskElement.remove();
+                }
+            });
+            delete projectTasks[projectId];
         }
 
         btn.remove();
