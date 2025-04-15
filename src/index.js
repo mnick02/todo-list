@@ -1,3 +1,6 @@
+import "./style.css";
+
+
 const btn = document.getElementById("project");
 const taskBtn = document.getElementById("taskBtn");
 const projectModal = document.getElementById("projectDialog");
