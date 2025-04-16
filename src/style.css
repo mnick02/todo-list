@@ -85,6 +85,17 @@ body {
     margin-bottom: 10px;
 }
 
+#projectDialog {
+    /*position and border radius*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 15px;
+    padding: 30px;
+}
+
 #task-content {
     position: absolute;
     left: 450px;
