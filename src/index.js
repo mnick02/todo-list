@@ -192,9 +192,20 @@ function removeThis(name, element, element2) {
 }
 
 function removeProjectBtn(name, element) {
+    const container = document.createElement("div");
+    container.classList.add("project-container");
+    name.removeChild(element);
+    container.appendChild(element);
+    
+    
+    
+    
     const btn = document.createElement("button");
+    btn.classList = "remove-btn";
     btn.textContent = "R";
-    name.appendChild(btn);
+    container.appendChild(btn);
+
+    name.appendChild(container);
 
     btn.addEventListener("click", () => {
 
@@ -214,8 +225,9 @@ function removeProjectBtn(name, element) {
             delete projectTasks[projectId];
         }
 
-        btn.remove();
-        element.remove();
+        //btn.remove();
+        //element.remove();
+        container.remove();
     });
 }
 
