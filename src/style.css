@@ -96,6 +96,25 @@ body {
     padding: 30px;
 }
 
+.input-styles {
+    margin-bottom: 15px;
+}
+
+#addBtn, #cancelBtn {
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #1992d4;
+
+    border: none;
+    border-radius: 10px;
+    padding: 6px 8px;
+    cursor: pointer;
+}
+
+#addBtn {
+    margin-right: 7px;
+}
+
 #task-content {
     position: absolute;
     left: 450px;
